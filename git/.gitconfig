@@ -1,0 +1,20 @@
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[user]
+	email = kamendov.maksim@icloud.com
+	name = kamendov-maxim
+[core]
+	editor = nvim
+[pull]
+	rebase = false
+[alias]
+	st = status -s
+	lgp = log HEAD --pretty=oneline
+	last = log -1 HEAD
+	gr = log --graph --all --oneline
+    bl = branch --list
+    wl = worktree list
+
