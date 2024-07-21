@@ -24,4 +24,3 @@ vim.keymap.set("n", "L", ":tabn<cr>")
 vim.keymap.set("n", "H", ":tabp<cr>")
 vim.keymap.set("n", "<leader>x", ":tabc<cr>")
 
-

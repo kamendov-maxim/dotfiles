@@ -1,36 +1,34 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/Cellar/zsh-syntax-highlighting/0.8.0/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+}
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+PS1="%1~ $(parse_git_branch) "
 
-# https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+precmd() {
+    PS1="%1~ $(parse_git_branch) "
+}
 
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
-
-source $ZSH/oh-my-zsh.sh
-tmux source-file ~/.config/tmux/.tmux.conf
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-alias hw='cd ~/programming/semester2'
-alias wt='cd ~/programming/worktrees'
 alias l='eza --git -lh'
 alias ll='eza --git -lah'
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias wmrestart='yabai --restart-service && skhd --restart-service'
 alias matrix='cmatrix -C Cyan'
+#alias fzf='fzf --preview=\"bat --color=always {}\"'
+alias fzf='fzf --preview="cat {}"'
+alias fzfn='nvim $(fzf -m --preview="cat {}")'
+alias fzfc='fzf --preview="cat {}" | pbcopy'
+alias icat="kitty +kitten icat --align=left"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias /="cd /"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+EDITOR="/usr/bin/vim"
+VISUAL="/usr/bin/vim"
+
+tmux source-file ~/.config/tmux/.tmux.conf
