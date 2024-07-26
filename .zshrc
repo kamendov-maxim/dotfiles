@@ -28,6 +28,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias /="cd /"
 
+vimf() { vim $(grep -rl "$1" | fzf -m) }
+nvimf() { nvim $(grep -rl "$1" | fzf -m) }
+
 EDITOR="/usr/bin/vim"
 VISUAL="/usr/bin/vim"
 
