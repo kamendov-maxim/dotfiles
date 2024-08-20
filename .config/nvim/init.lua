@@ -18,6 +18,7 @@ spec 'plugins.comment'
 spec 'plugins.navic'
 spec 'plugins.navbuddy'
 spec 'plugins.github-theme'
+spec 'plugins.debugging'
 
 
 require 'plugins.lazy'

@@ -1,7 +1,5 @@
 ignored_files=".git"
 
 for file in .*; do
-    if ! [[ ":$ignored_files:" = *:$file:* ]] ; then
-        ln -s "dotfiles/$file" "../$file"
-    fi
+    ! [[ ":$ignored_files:" = *:$file:* ]] && ln -s "dotfiles/$file" "../$file"
 done
