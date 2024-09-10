@@ -9,10 +9,7 @@ local M = {
 function M.config()
   local servers = {
     "lua_ls",
-    "pyright",
-    "bashls",
     "clangd",
-    "omnisharp",
   }
 
   require("mason").setup {

@@ -4,7 +4,13 @@ local M = {
     dependencies = {
         {
             "folke/neodev.nvim",
-            "jmederosalvarado/roslyn.nvim", -- c#
+            {
+                "seblj/roslyn.nvim",
+                ft = "cs",
+                opts = {
+                    -- your configuration comes here; leave empty for default settings
+                }
+            }
         },
     },
 }
@@ -113,14 +119,6 @@ function M.config()
 
         lspconfig[server].setup(opts)
     end
-
-    require("roslyn").setup({
-        dotnet_cmd = "dotnet",              -- this is the default
-        roslyn_version = "4.8.0-3.23475.7", -- this is the default
-        on_attach = M.on_attach,
-        capabilies = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(),
-            require('cmp_nvim_lsp').default_capabilities())
-    })
 
     require 'lspconfig'.clangd.setup(
         {
