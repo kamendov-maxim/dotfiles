@@ -11,8 +11,8 @@ vim.opt.expandtab = true
 vim.opt.tabstop=4
 vim.opt.softtabstop=4
 vim.opt.shiftwidth=4
-vim.opt.number = true
-vim.opt.relativenumber = true 
+vim.opt.number = false
+vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"
 
 vim.g.mapleader = " "
@@ -45,3 +45,6 @@ keymap("x", "p", [["_dP]])
 vim.api.nvim_set_keymap("t", "jk", "<C-\\><C-n>", opts)
 
 vim.g.netrw_banner = 0
+
+keymap("n", "<C-j>", "10j");
+keymap("n", "<C-k>", "10k");

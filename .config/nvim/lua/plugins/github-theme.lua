@@ -7,18 +7,18 @@ Theme = {
 
 
 function Theme.theme_switch()
-     if Theme.current_colorscheme == "github_light" then
+    if Theme.current_colorscheme == "github_light" then
         Theme.current_colorscheme = "github_dark_dimmed"
-     else
+    else
         Theme.current_colorscheme = "github_light"
-     end
-     vim.cmd(string.format('colorscheme %s', Theme.current_colorscheme))
+    end
+    vim.cmd(string.format('colorscheme %s', Theme.current_colorscheme))
 end
 
 function Theme.config()
     require('github-theme').setup()
-    vim.cmd('colorscheme github_light')
-    vim.keymap.set('n', '<leader>ts', ':lua Theme.theme_switch()<cr>') 
+    -- vim.cmd('colorscheme github_light')
+    vim.keymap.set('n', '<leader>ts', ':lua Theme.theme_switch()<cr>')
 end
 
 return Theme

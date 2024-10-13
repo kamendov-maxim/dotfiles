@@ -8,6 +8,7 @@
 	name = kamendov-maxim
 [core]
 	editor = nvim
+    excludesFile = ~/.gitignore
 [pull]
 	rebase = false
 [alias]

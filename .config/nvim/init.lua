@@ -18,8 +18,13 @@ spec 'plugins.comment'
 spec 'plugins.navic'
 spec 'plugins.navbuddy'
 spec 'plugins.github-theme'
+-- spec 'plugins.colorscheme'
 spec 'plugins.debugging'
-
+spec 'plugins.vimtex'
+spec 'plugins.markdown'
+spec 'plugins.obsidian'
+spec 'plugins.dotnet'
+spec 'plugins.auto-dark-mode'
 
 require 'plugins.lazy'
 
